@@ -1,6 +1,5 @@
 module multiplexer #(parameter N=1) (
-	input [N-1:0] sum_i, subs_i, and_i, or_i, not_i, xor_i,
-	loglefshif_i, aritleftshif_i,logrightshif_i, aritrightshif_i,
+	input [N-1:0] sum_i, subs_i, and_i, or_i, not_i, xor_i, loglefshif_i, aritleftshif_i,logrightshif_i, aritrightshif_i,
 F10_i, F11_i, F12_i, F13_i, F14_i, F15_i, 
 	input [3:0] selection_i, 
 	output [N-1:0] y_o);
