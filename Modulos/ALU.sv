@@ -75,7 +75,9 @@ module ALU #(parameter N=1) (
 	function13,function14,function15,alucontrol,result);
 	
 	
-	
+	ZeroFlag#N dut(result,Z);
+	assign Ne = result[N-1];
+
 	
 	
 	
