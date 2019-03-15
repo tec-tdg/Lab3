@@ -1,0 +1,17 @@
+module TOP( 
+	input [2:0] a_op, b_op, 
+	input [3:0] alucontrol,
+	output [2:0] result_segments,
+	output [3:0] flags_leds);
+	
+	//dut(a_operand,b_operand,AluControl,result,flags);
+	ALU#3 dalu(a_op,b_op,alucontrol,result_segments,flags_leds);
+	
+	logic [3:0]valueDeco;
+	assign valueDeco[3]= 1'b0;
+	assign valueDeco[2]= result_segments[2];
+	assign valueDeco[1]= result_segments[1];
+	assign valueDeco[0]= result_segments[0];
+	
+	Decoder deco(valueDeco,result_segments);
+endmodule

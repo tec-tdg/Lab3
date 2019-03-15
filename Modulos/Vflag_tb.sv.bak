@@ -1,0 +1,20 @@
+module Vflag_tb();
+	
+	logic [2:0] a_i_value,b_i_value, result_value,
+	logic [3:0] alucontrol_value,
+	logic flag_value 
+	Vflag#3 dut(a_i_value,b_i_value,result_value,alucontrol_value,flag_value);
+	initial begin
+	assign a_i_value = 3'b111; 
+	assign b_i_value =  3'b111; 
+	assign result_value =  3'b000; 
+	assign alucontrol_value = 4'b0000;
+	#10;
+	assert(flag_value===3'b1) $display ("  overflow ok"); else $error(" value failed");
+	
+	endmodule
+	
+	
+	
+	
+endmodule

@@ -1,0 +1,17 @@
+module ZeroFlag  #(parameter N=1)( 
+	input [N-1:0] result, 
+	output flag );
+	
+	logic [N-1:0] anti_result;
+	assign flag = 1'b1;
+	genvar i;
+	
+	generate 
+		for (i = 0; i < N; i = i+1) begin:forloop
+			assign flag = flag and anti_result[i];
+		end
+	endgenerate
+
+
+
+endmodule

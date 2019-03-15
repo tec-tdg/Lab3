@@ -77,6 +77,7 @@ module ALU #(parameter N=1) (
 	
 	ZeroFlag#N dut(result,Z);
 	assign Ne = result[N-1];
+	Vflag#N vflag(a_i,b_i,result,alucontrol,V);
 
 	
 	

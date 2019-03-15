@@ -1,0 +1,35 @@
+module OverflowFlag  #(parameter N=1)( 
+	input [N-1:0] AluControl_in,Sum,a_i,b_i,
+	input c_in,
+	output flag );
+	
+	//Xor 3 entradas negador
+	
+	logic [N-1:0]anti_xor1b ;
+	logic [N-1:0]xor1a_out ;
+	logic [N-1:0]xor1b_out ;
+
+	
+	xorGate#N Xor1a(a_i[N-1],b_i[0],xor1a_out);
+	xorGate#N Xor1b(xor1a_out,AluControl_in[0],xor1b_out);
+	notGate#N Xor1b_negated(xor1b_out,anti_xor1b);
+	
+	//Xor 2 entradas 
+	
+	logic [N-1:0]xor2_out
+	
+	xorGate#N Xor2(a_i[N-1],Sum[N-1],xor2_out);
+	
+	
+	
+	
+	
+	
+	
+	notGate#N Xor1_negated(,anti_xor1);
+	
+	assign flag = &anti_result;
+
+
+
+endmodule
