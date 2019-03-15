@@ -1,6 +1,5 @@
 module OverflowFlag  #(parameter N=1)( 
 	input [N-1:0] AluControl_in,Sum,a_i,b_i,
-	input c_in,
 	output flag );
 	
 	//Xor 3 entradas negado
