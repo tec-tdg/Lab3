@@ -3,27 +3,29 @@ module multiplexer #(parameter N=1) (
 	loglefshif_i, aritleftshif_i,logrightshif_i, aritrightshif_i,
 F10_i, F11_i, F12_i, F13_i, F14_i, F15_i, 
 	input [3:0] selection_i, 
-	output [N-1:0] y_o);
+	output [N-1:0] result);
 	
-	logic [N-1:0] Functions [15:0];
+	logic [N-1:0] y_o;
+	always_comb
+	case(selection_i)
+		4'b0000:   y_o = sum_i ;
+		4'b0001:   y_o = subs_i ;
+		4'b0010:   y_o = and_i ;
+		4'b0011:   y_o = or_i ;
+		4'b0100:   y_o = not_i ;
+		4'b0101:   y_o = xor_i ;
+		4'b0110:   y_o = loglefshif_i ;
+		4'b0111:   y_o = aritleftshif_i ;
+		4'b1000:   y_o = logrightshif_i ;
+		4'b1001:   y_o = aritrightshif_i ;
+		4'b1010:   y_o = F10_i ;
+		4'b1011:   y_o = F11_i ;
+		4'b1100:   y_o = F12_i ;
+		4'b1101:   y_o = F13_i ;
+		4'b1110:   y_o = F14_i ;
+		4'b1111:   y_o = F15_i ;
+	endcase
 	
-	assign Functions[0] = sum_i;
-	assign Functions[1] = subs_i;
-	assign Functions[2] = and_i;
-	assign Functions[3] = or_i;
-	assign Functions[4] = not_i;
-	assign Functions[5] = xor_i;
-	assign Functions[6] = loglefshif_i;
-	assign Functions[7] = aritleftshif_i;
-	assign Functions[8] = logrightshif_i;
-	assign Functions[9] = aritrightshif_i;
-	assign Functions[10] = F10_i;
-	assign Functions[11] = F11_i;
-	assign Functions[12] = F12_i;
-	assign Functions[13] = F13_i;
-	assign Functions[14] = F14_i;
-	assign Functions[15] = F15_i;
-	
-	assign y_o = Functions[selection_i];
-		
+	assign result = y_o;
+	 
 endmodule

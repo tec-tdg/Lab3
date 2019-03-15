@@ -1,0 +1,41 @@
+module Multiplexer_tb();
+
+//entradas
+
+logic[3:0] 
+	function0, /*Adder*/
+	function1, /*Substraction*/
+	function2, /*AND*/
+	function3, /*OR*/
+	function4, /*NOT*/
+	function5, /*XOR*/
+	function6, /*LOGIC LEFT SHIFT*/
+	function7, /*Arithmetic LEFT SHIFT*/
+	function8, /*Logic Right SHIFT*/
+	function9, /*Arithmetic Right SHIFT*/
+	function10,function11, function12,function13,function14,function15;
+
+	
+	
+	
+logic [3:0] AluControl; 
+
+
+//salidas
+logic [3:0] result;
+
+
+
+multiplexer#4 dut(function0,function1,function2,
+	function3,function4,function5,function6,function7,
+	function8,function9,function10,function11,function12,
+	function13,function14,function15,alucontrol,result);
+
+initial begin
+	function0=4'b1111; AluControl=4'b0000;  #10;
+	assert(result===4'b1111 ) $display ("Suma ok"); else $error("Suma failed");
+
+
+end
+
+endmodule 

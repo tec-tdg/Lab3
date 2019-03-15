@@ -1,0 +1,26 @@
+module ALU_tb();
+
+//entradas
+
+logic [3:0] a_operand;
+logic [3:0] b_operand;
+logic [3:0] AluControl;
+
+//salidas
+
+logic [3:0] result;
+logic [3:0] flags;
+
+ALU#4 dut(a_operan,b_operand,AluControl,result,flags);
+
+initial begin
+	a_operand=4'b0000; b_operand=4'b0001; AluControl=4'b0000; #10;
+	assert(result===4'b0001 ) $display ("Suma 0000 + 0001 ok"); else $error("Suma failed");
+
+	
+
+
+
+end
+
+endmodule 
